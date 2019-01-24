@@ -54,3 +54,6 @@ That is determined by the editor which does the storing. Most likely it will be 
 
 数据库API。予以解决方言问题
 
+## [javatuples](https://www.javatuples.org/index.html)
+
+javatuples 1.2 is an evolutive release. Now tuples are comparable --and sortable-- and new static methods have been added for obtaining tuples from iterables, even if these iterables hold more elements than needed by the new tuple.
