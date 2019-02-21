@@ -1,15 +1,12 @@
 # xml的几种解析技术方案
 
 1. DOM
-
 2. 1. JDOM
    2. DOM4J
-
 3. SAX
-
 4. Digester
-
 5. JAXB
+6. jackson
 
 JAXB is not directly comparable to DOM and SAX. The Java DOM and SAX parsing APIs are lower-level APIs to parse XML documents, while JAXB (Java API for XML Binding) is a higher-level API for converting XML elements and attributes to a Java object hierarchy (and vice versa). Implementations of JAXB will most likely use a DOM or SAX parser behind the scenes to do the actual parsing of the XML input data.
 
