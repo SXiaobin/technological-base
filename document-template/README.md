@@ -8,6 +8,8 @@ These instructions will get you a running instance of the solution.
 
 ## Running the Solution
 
+# How-Tos
+
 # Troubleshooting
 
 ## ${problem description}
