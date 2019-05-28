@@ -29,3 +29,9 @@ Since now we have our own proxy server on *127.0.0.1:8888*.
 Download plugin ***FoxyProxy***. Then add configuration like below:
 
 ![1559050817455](<https://raw.githubusercontent.com/SXiaobin/technological-base/master/.image/1559050817455.png?token=AGDYE4NJQ7LI3KD4HZWL6RC45U6HA>)
+
+Then we could enable this configuration. 
+
+![1559051418027](<https://raw.githubusercontent.com/SXiaobin/technological-base/master/.image/1559051418027.png?token=AGDYE4MFIXQPDN52N5HEDDK45U6TM>)
+
+Now you could access the website by Firefox thought the tunnel.
