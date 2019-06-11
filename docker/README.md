@@ -14,39 +14,45 @@ Dock image save {image id} -o xxx.tar image:tag
 
 ## load
 
+## List all containers
+
+```cmd
+docker ps -aq
+```
+
 ## 杀死所有正在运行的容器
 
-```
+```cmd
 docker kill $(docker ps -a -q)
 ```
 
 ## 删除所有已经停止的容器
-```
+```cmd
 docker rm $(docker ps -a -q)
 ```
 
 ## 删除所有未打 dangling 标签的镜
 
-```
+```cmd
 docker rmi $(docker images -q -f dangling=true)
 ```
 
 ## 删除所有镜像
 
-```
+```cmd
 docker rmi $(docker images -q)
 ```
 
 ## 强制删除 无法删除的镜像
 
-```
+```cmd
 docker rmi -f <IMAGE_ID>
 docker rmi -f $(docker images -q)
 ```
 
 ## 为这些命令创建别名
 
-```
+```cmd
 # ~/.bash_aliases
  
 # 杀死所有正在运行的容器.
