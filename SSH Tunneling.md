@@ -32,6 +32,27 @@ Download plugin ***FoxyProxy***. Then add configuration like below:
 
 Then we could enable this configuration. 
 
-![1559051418027](<https://raw.githubusercontent.com/SXiaobin/technological-base/master/.image/1559051418027.png?token=AGDYE4MFIXQPDN52N5HEDDK45U6TM>)
+![1559051418027](<https://raw.githubusercontent.com/SXiaobin/technological-base/master/.image/1559051418027.png?token=AGDYE4LLNASFFP74TMFOTFK476WD6>)
 
 Now you could access the website by Firefox thought the tunnel.
+
+# SSH Tunneling with SSH comand
+
+In [OpenSSH](https://www.ssh.com/ssh/openssh/), local port forwarding is configured using the `-L` option:
+
+```cmd
+ssh -L intra.example.com:80:gw.example.com:80 
+
+ssh install@212.117.89.75 -p 52074 -L 192.168.140.8:4840:192.168.140.8:4840
+```
+
+This example opens a connection to the `gw.example.com` jump server, and forwards any connection to port 80 on the local machine to port 80 on `intra.example.com`.
+
+By default, anyone (even on different machines) can connect to the specified port on the SSH client machine. However, this can be restricted to programs on the same host by supplying a *bind address*:
+
+```
+ssh -L 127.0.0.1:80:intra.example.com:80 gw.example.com
+```
+
+The `LocalForward` option in the [OpenSSH client configuration file](https://www.ssh.com/ssh/config/) can be used to configure forwarding without having to specify it on command line.
+
