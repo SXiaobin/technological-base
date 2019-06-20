@@ -36,7 +36,7 @@ Then we could enable this configuration.
 
 Now you could access the website by Firefox thought the tunnel.
 
-# SSH Tunneling with SSH comand
+# [SSH Tunneling with SSH comand](https://manpages.debian.org/stretch/openssh-client/ssh_config.5.en.html)
 
 In [OpenSSH](https://www.ssh.com/ssh/openssh/), local port forwarding is configured using the `-L` option:
 
@@ -55,4 +55,23 @@ ssh -L 127.0.0.1:80:intra.example.com:80 gw.example.com
 ```
 
 The `LocalForward` option in the [OpenSSH client configuration file](https://www.ssh.com/ssh/config/) can be used to configure forwarding without having to specify it on command line.
+
+# How Tos
+
+## How to forward multiple ports
+
+`ssh -L LPort1:RHOST1:RPORT1 -L LPORT2:RHOST2:RPORT2 me@ju.mp.ho.st`
+
+This can be shortened to `ssh jump`, using the "alias" `jump`, if you set up a matching section in your `~/.ssh/config` like this:
+
+```cmd
+Host [jump]
+    User [myUserName]
+    Hostname [ju.mp.ho.st]
+    Port [Connecting Port]
+    LocalForward [Local Port] [Remote Server]:[Remote Port]
+    LocalForward [Local Port] [Remote Server]:[Local Port]
+    LocalForward [Local Port] [Remote Server]:[Local Port]
+    LocalForward [Local Port] [Remote Server]:[Local Port]
+```
 
