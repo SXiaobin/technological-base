@@ -2,7 +2,7 @@
 
 ## Problem - [Why is my Java Charset.defaultCharset() GBK and not Unicode?](https://stackoverflow.com/questions/16602900/why-is-my-java-charset-defaultcharset-gbk-and-not-unicode)
 
-## Solution
+### Solution
 
 > What is JAVA default charset?
 
