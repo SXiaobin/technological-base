@@ -70,8 +70,8 @@ Host [jump]
     Hostname [ju.mp.ho.st]
     Port [Connecting Port]
     LocalForward [Local Port] [Remote Server]:[Remote Port]
-    LocalForward [Local Port] [Remote Server]:[Local Port]
-    LocalForward [Local Port] [Remote Server]:[Local Port]
-    LocalForward [Local Port] [Remote Server]:[Local Port]
+    LocalForward [Local Port] [Remote Server]:[Remote Port]
+    LocalForward [Local Port] [Remote Server]:[Remote Port]
+    LocalForward [Local Port] [Remote Server]:[Remote Port]
 ```
 
