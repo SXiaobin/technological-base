@@ -1,3 +1,21 @@
+# How Tos
+
+## How to remote debug a java application
+
+In Java 8 the JDK supports a JAVA_TOOL_OPTIONS environment variable so to enable the debugger for any Java application. 
+
+```cmd
+-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n
+```
+
+Below is one example how we need to set when we run a jar
+
+```cmd
+ java -Xmx256m -agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n -jar /service-workflowhelper2.jar 
+```
+
+Then start a remote debug session connecting to localhost:8000
+
 # Trouble Shooting
 
 ## Problem - [Why is my Java Charset.defaultCharset() GBK and not Unicode?](https://stackoverflow.com/questions/16602900/why-is-my-java-charset-defaultcharset-gbk-and-not-unicode)

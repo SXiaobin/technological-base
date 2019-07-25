@@ -99,3 +99,41 @@ alias dockercleani='docker rmi $(docker images -q -f dangling=true)'
 alias dockerclean='dockercleanc || true && dockercleani'
 ```
 
+# How Tos
+
+## How to build a java image which we can remote debug
+
+In Java 8 the JDK supports a JAVA_TOOL_OPTIONS environment variable so to enable the debugger for any Java application. Docker image is only a VM which is running a java application, so we just need defind the  JAVA_TOOL_OPTIONS environment variable in docker run command / docker file/ docker-compose file(maybe)
+
+- Here is one example about how to do it in docker run command
+
+```cmd
+-p 8000:8000 -e "JAVA_TOOL_OPTIONS=\"-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n\""
+```
+
+- Here is one example how to do it in docker file.
+
+```dockerfile
+FROM java:8-alpine
+
+EXPOSE 8080
+
+ADD http://paipebasissrv1.psi.de:8082/repository/Basis-Releases/de/psi/paip/mes/docker-health-check/1.0/docker-health-check-1.0.jar /healthcheck.jar
+HEALTHCHECK CMD java -jar /healthcheck.jar --url=http://localhost:8080/actuator/health
+
+ADD target/service-workflowhelper2.jar /service-workflowhelper2.jar
+ENTRYPOINT ["java", "-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n", "-Xmx256m",  "-jar", "/service-workflowhelper2.jar"]
+
+```
+
+* Here is one example how to do it in docker-compose file
+
+```yaml
+  service-workflowhelper2:
+    image: pai-bld-mesbuild1.psi.de:19123/mes/service-workflowhelper2:latest
+    ports:
+      - 21015:8000
+    environment:
+      JAVA_TOOL_OPTIONS: "-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n"
+```
+
