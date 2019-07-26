@@ -2,3 +2,9 @@
 \.idea/
 
 *.iml
+
+hibernate/hibernate-tutorials/basic/target/
+hibernate/hibernate-tutorials/annotations/target/
+hibernate/hibernate-tutorials/entitymanager/target/
+hibernate/hibernate-tutorials/envers/target/
+hibernate/hibernate-tutorials/osgi/target/
