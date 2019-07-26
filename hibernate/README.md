@@ -4,7 +4,9 @@
 
 To decide between bidirectional and unidirectional mappings, you should think whether the entities have a tight coupling or not
 
+Code Example:
 
+- [Unidirectional mappings](hibernate-tutorials\basic\src\main\java\org\hibernate\tutorial\reference\package-info.java) 
 
 **References:**
 
