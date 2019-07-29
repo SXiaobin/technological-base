@@ -1,4 +1,4 @@
 # **technological-base** 
 
-公用技术框架信息库
+公用技术信息
 
