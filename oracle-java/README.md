@@ -18,7 +18,7 @@ Then start a remote debug session connecting to localhost:8000
 
 # Trouble Shooting
 
-## Problem - [Why is my Java Charset.defaultCharset() GBK and not Unicode?](https://stackoverflow.com/questions/16602900/why-is-my-java-charset-defaultcharset-gbk-and-not-unicode)
+## [Why is my Java Charset.defaultCharset() GBK and not Unicode?](https://stackoverflow.com/questions/16602900/why-is-my-java-charset-defaultcharset-gbk-and-not-unicode)
 
 ### Solution
 
@@ -61,6 +61,20 @@ The keyboard doesn't. It only knows which keys you pressed. The OS turns these k
 > The String str is stored in my .java source code file. What is the charset to store java source code?
 
 That is determined by the editor which does the storing. Most likely it will be the OS default again, or if you change it you might make it UTF-8.
+
+## Java: cannot find symbol
+
+The project could able be complied in pipeline but in Intellij, it reports this error.
+
+### Cause
+
+Unknow
+
+### Solution A
+
+1. Intellij - Maven - right click on your project - Unlink Maven Projects.
+2. Intellij - Project Structure - Modules,  import the module again.
+3. Intellij - Build - Rebuild your project
 
 # 第三方API汇总信息
 
