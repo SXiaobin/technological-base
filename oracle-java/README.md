@@ -76,7 +76,7 @@ Unknow
 2. Intellij - Project Structure - Modules,  import the module again.
 3. Intellij - Build - Rebuild your project
 
-## [Maven can't find my local artifacts](https://stackoverflow.com/questions/16866978/maven-cant-find-my-local-artifacts)
+## [Maven: can't find my local artifacts](https://stackoverflow.com/questions/16866978/maven-cant-find-my-local-artifacts)
 
 本地中央仓库的类库存在，但项目无法找到该类库。错误信息为：
 
@@ -119,6 +119,20 @@ Unknow
 ### Solution A
 
 移除本地中央仓库某类库下的`_maven.repositories`，但这样就无法再使用maven类库保护功能。
+
+## [Maven: Failed to read artifact descriptor](https://stackoverflow.com/questions/6642146/maven-failed-to-read-artifact-descriptor)
+
+类库已存在，但是报错 
+
+`Failed to read artifact descriptor`
+
+### Cause
+
+This problem can occur if you have some child projects that refer to a parent pom and you have not installed from the parent pom directory (run `mvn install` from the parent directory). One of the child projects may depend on a sibling project and when it goes to read the pom of the sibling, it will fail with the error mentioned in the question unless you have installed from the parent pom directory at least once.
+
+### Solution
+
+可通过maven compile 查看缺失哪些父项类库并安装父项类库（从远程中央仓库下载或本地安装）
 
 # 第三方API汇总信息
 
