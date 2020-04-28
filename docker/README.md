@@ -9,7 +9,7 @@ docker build .
 ## save
 
 ```cmd
-Dock image save {image id} -o xxx.tar image:tag
+docker image save {image id} -o xxx.tar image:tag
 ```
 
 ## load
