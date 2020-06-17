@@ -1266,3 +1266,7 @@ call imp %DATABASE_NAME%/%DATABASE_NAME%@246 file=e:34dbfile/%DATABASE_NAME%.dmp
 pause
 ```
 
+```cmd
+imp psiiface/data@mes82 file=C:\Users\xsu\Desktop\TCQ_Q2OM\tcq_q2om_0.dmp log=C:\Users\xsu\Desktop\TCQ_Q2OM\import.log full=y ignore=y
+```
+

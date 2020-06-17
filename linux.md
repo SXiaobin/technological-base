@@ -23,3 +23,15 @@ find：使用find命令搜索文件，使用它的-name参数指明文件后缀�
 chmod 554 a.txt
 ```
 
+## 如何创建软连接
+
+```cmd
+#用ln -s来建立软链接
+[roc@roclinux ~]$ ln -s source.txt softsource.txt
+ 
+#查看文件i节点信息
+[roc@roclinux ~]$ ls -il source.txt softsource.txt
+2235009 lrwxrwxrwx 1 roc roc 10 3月   1 00:24 softsource.txt -> source.txt
+2235010 -rw-rw-r-- 2 roc roc 14 3月   1 00:19 source.txt
+```
+
