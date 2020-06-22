@@ -137,3 +137,8 @@ ENTRYPOINT ["java", "-agentlib:jdwp=transport=dt_socket,address=8000,server=y,su
       JAVA_TOOL_OPTIONS: "-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n"
 ```
 
+
+
+docker exec -it is-werma ls /libs
+
+docker exec -it is-werma echo $CLASSPATH
