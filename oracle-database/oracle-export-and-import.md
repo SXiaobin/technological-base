@@ -1267,6 +1267,6 @@ pause
 ```
 
 ```cmd
-imp psiiface/data@mes82 file=C:\Users\xsu\Desktop\TCQ_Q2OM\tcq_q2om_0.dmp log=C:\Users\xsu\Desktop\TCQ_Q2OM\import.log full=y ignore=y
+imp psiiface/data@mes82 file=C:\Users\xsu\Desktop\tcq_engeneer_change.dmp log=C:\Users\xsu\Desktop\import.log full=y ignore=y
 ```
 

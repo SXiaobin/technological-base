@@ -16,6 +16,31 @@ Below is one example how we need to set when we run a jar
 
 Then start a remote debug session connecting to localhost:8000
 
+## How to convert List to Array in Java
+
+How might I convert an `ArrayList<String>` object to a `String[]` array in Java?
+
+Answer:
+
+```java
+List<String> list = ..;
+String[] array = list.toArray(new String[0]);
+```
+
+For example:
+
+```java
+List<String> list = new ArrayList<String>();
+//add some stuff
+list.add("android");
+list.add("apple");
+String[] stringArray = list.toArray(new String[0]);
+```
+
+The `toArray()` method without passing any argument returns `Object[]`. So you have to pass an array as an argument, which will be filled with the data from the list, and returned. You can pass an empty array as well, but you can also pass an array with the desired size.
+
+**Important update**: Originally the code above used `new String[list.size()]`. However, [this blogpost](http://shipilev.net/blog/2016/arrays-wisdom-ancients/) reveals that due to JVM optimizations, using `new String[0]` is better now.
+
 # Trouble Shooting
 
 ## [Why is my Java Charset.defaultCharset() GBK and not Unicode?](https://stackoverflow.com/questions/16602900/why-is-my-java-charset-defaultcharset-gbk-and-not-unicode)
