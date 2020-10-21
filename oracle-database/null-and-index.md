@@ -112,7 +112,7 @@ scott@ORCL> **select** * **from** t1;
 
 ​        ID VAL  
 
----------- ------------------------------  
+---------- ------------------------------
 
 unknown    Y  
 
@@ -138,7 +138,7 @@ scott@ORCL> **select** index_name,index_type,blevel,leaf_blocks,num_rows,status,
 
 INDEX_NAME      INDEX_TYPE     BLEVEL LEAF_BLOCKS   NUM_ROWS STATUS   DISTINCT_KEYS  
 
---------------- ---------- ---------- ----------- ---------- -------- -------------  
+--------------- ---------- ---------- ----------- ---------- -------- -------------
 
 I_T1_ID         NORMAL              0           0          0 VALID                0  
 
@@ -466,7 +466,7 @@ scott@ORCL> **select** * **from** t1;
 
 ​        ID VAL  
 
----------- ------------------------------  
+---------- ------------------------------
 
 ​         1 Y  
 
@@ -616,7 +616,7 @@ scott@ORCL> **select** index_name,index_type,blevel,leaf_blocks,num_rows,status,
 
 INDEX_NAME      INDEX_TYPE     BLEVEL LEAF_BLOCKS   NUM_ROWS STATUS   DISTINCT_KEYS  
 
---------------- ---------- ---------- ----------- ---------- -------- -------------  
+--------------- ---------- ---------- ----------- ---------- -------- -------------
 
 I_T1_ID         NORMAL              0           1          3 VALID                3  
 
@@ -696,7 +696,7 @@ scott@ORCL> **desc** t2
 
  **Name**                          Null?    Type  
 
- ----------------------------- -------- --------------------  
+----------------------------- -------- --------------------
 
  OBJ_ID                                 NUMBER  
 
@@ -736,7 +736,7 @@ scott@ORCL> **select** * **from** t2 **where** obj_id **is** null and rownum<3;
 
 ​    OBJ_ID OBJ_NAME  
 
----------- ------------------------------  
+---------- ------------------------------
 
 unknown    ICOL$  
 
@@ -968,7 +968,7 @@ scott@ORCL> **select** index_name,index_type,blevel,leaf_blocks,num_rows,status,
 
 INDEX_NAME      INDEX_TYPE                         BLEVEL LEAF_BLOCKS   NUM_ROWS STATUS   DISTINCT_KEYS  
 
---------------- ------------------------------ ---------- ----------- ---------- -------- -------------  
+--------------- ------------------------------ ---------- ----------- ---------- -------- -------------
 
 I_FN_T2_OBJ_ID  **FUNCTION**-BASED NORMAL                   1          26      11719 VALID            11621  
 
@@ -1046,7 +1046,7 @@ scott@ORCL> **select** obj_id,count(*) **from** t2 **group** **by** obj_id;
 
 ​    OBJ_ID   COUNT(*)  
 
----------- ----------  
+---------- ----------
 
 ​         1      11620  
 
@@ -1206,7 +1206,7 @@ scott@ORCL> **select** index_name,index_type,blevel,leaf_blocks,num_rows,status,
 
 INDEX_NAME      INDEX_TYPE                         BLEVEL LEAF_BLOCKS   NUM_ROWS STATUS   DISTINCT_KEYS  
 
---------------- ------------------------------ ---------- ----------- ---------- -------- -------------  
+--------------- ------------------------------ ---------- ----------- ---------- -------- -------------
 
 I_FN_T2_OBJ_ID  **FUNCTION**-BASED NORMAL                   1          40      11719 VALID                2  
 
@@ -1227,6 +1227,15 @@ I_T2_OBJ_ID     NORMAL                                  1          40      11719
 -->Blog :   <http://blog.csdn.net/robinson_0612>  
 
 四、总结
+
+无论是单列唯一索引或复合唯一索引，对于可以为null的列或复合null值，Oracle不会为其存储索引值。故在基于单列创建B树唯一索引或多列创建B树复合唯一索引的情形下，
+**当列上允许为null值时：**
+  where子句使用了基于is null的情形，其执行计划走全表扫描。
+  where子句使用了基于is not null的情形，其执行计划走索引扫描。
+
+**当列上不允许为null值时，存在非null约束：**
+  where子句使用了基于is null的情行，其执行计划走索引扫描。
+  where子句使用了基于is not null的情形，其执行计划走索引扫描。
 
 ​    1、对于用于连接或经常被谓词使用到的列应尽可能避免NULL值属性，因为它容易导致索引失效。
 
